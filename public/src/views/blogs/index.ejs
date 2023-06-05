@@ -1,0 +1,49 @@
+<div class="my-4 px-4">
+  <a
+    class="bg-green-300 px-4 py-2 text-4xl hiwua font-thin rounded text-white"
+    href="/new"
+    >ድር ብያብር አንበሳ ያስር</a
+  >
+  <a
+    class="bg-green-300 px-4 py-2 text-4xl sabean font-thin rounded text-white"
+    href="/new"
+    >አማርኛ</a
+  >
+  <a
+    class="bg-green-300 px-4 py-2 text-4xl zelan font-semibold rounded text-white"
+    href="/new"
+    >ድር ብያብር አንበሳ ያስር</a
+  >
+  <a
+    class="bg-green-300 px-4 py-2 text-4xl font-semibold rounded text-white"
+    href="/new"
+    >ድር ብያብር አንበሳ ያስር</a
+  >
+
+  <a
+    class="bg-green-300 px-4 wahsrab py-2 text-4xl font-semibold rounded text-white"
+    href="/new"
+    >ድር ብያብር አንበሳ ያስር</a
+  >
+
+  <a
+    class="bg-green-300 px-4 fantuwua py-2 text-4xl font-thin rounded text-white"
+    href="/new"
+    >ድር ብያብር አንበሳ ያስር</a
+  >
+
+  <a
+    class="bg-green-300 px-4 tint py-2 text-4xl font-thin rounded text-white"
+    href="/new"
+    >ድር ብያብር አንበሳ ያስር</a
+  >
+</div>
+<h1 class="text-2xl font-bold py-2">All Blogs</h1>
+<ul>
+  <% blogs.forEach((blog) => { %>
+  <li class="m-2">
+    <a href="/<%= blog.id %>"><%= blog.title %></a>
+    <%- include ('./partials/_delete_form.ejs', { url : `/${blog.id}` }) %>
+  </li>
+  <% }); %>
+</ul>
