@@ -65,3 +65,7 @@
 .tint {
     font-family: var(--font-tint);
 }
+
+.hero-section-bg {
+  background-image: url("/images/saving-2.jpg");
+}

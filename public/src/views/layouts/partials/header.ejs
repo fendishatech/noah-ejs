@@ -1,6 +1,9 @@
-<header class="w-full h-[64px] px-6 py-2 flex justify-between items-center">
+<header
+  id="header"
+  class="w-full h-[64px] px-6 py-2 flex fixed justify-between items-center transition duration-300"
+>
   <h1 class="text-5xl text-green-800 hiwua">
-    ኖህ<span class="text-xl"> የቁጠባና የብድር ተቋም</span>
+    ኖህ<span class="text-xl text-yellow-700"> የቁጠባና የብድር ተቋም</span>
   </h1>
   <div class="flex items-center gap-x-6">
     <ul class="flex hiwua items-center">
@@ -13,15 +16,57 @@
     </ul>
     <div class="flex items-center hiwua gap-x-4">
       <button
-        class="text-white bg-green-400 hover:bg-green-300 px-6 py-2 rounded"
+        class="text-white text-xl bg-green-400 hover:bg-green-300 px-6 py-2 rounded"
       >
         ይግቡ
       </button>
       <button
-        class="text-white bg-green-400 hover:bg-green-300 px-6 py-2 rounded"
+        class="text-white text-xl bg-green-400 hover:bg-green-300 px-6 py-2 rounded"
       >
         ይመዝገቡ
       </button>
     </div>
   </div>
 </header>
+<script>
+  const header = document.getElementById("header");
+  let prevScrollPos = window.pageYOffset;
+  const scrollDistance = 80;
+
+  window.addEventListener("scroll", () => {
+    const currentScrollPos = window.pageYOffset;
+    if (currentScrollPos >= scrollDistance) {
+      header.classList.remove("bg-transparent", "text-slate-100", "sticky-top");
+      header.classList.add(
+        "bg-white",
+        "shadow-lg",
+        "text-gray-900",
+        "sticky-top-80"
+      );
+    } else {
+      header.classList.remove(
+        "bg-white",
+        "shadow-lg",
+        "text-gray-900",
+        "sticky-top-80"
+      );
+      header.classList.add("bg-transparent", "text-slate-100", "sticky-top");
+    }
+    prevScrollPos = currentScrollPos;
+  });
+  // const header = document.getElementById("header");
+  // let prevScrollPos = window.pageYOffset;
+  // const scrollDistance = 80;
+
+  // window.addEventListener("scroll", () => {
+  //   const currentScrollPos = window.pageYOffset;
+  //   if (currentScrollPos >= scrollDistance) {
+  //     header.classList.remove("bg-transparent", "text-slate-100");
+  //     header.classList.add("bg-white", "shadow-lg", "text-gray-900");
+  //   } else {
+  //     header.classList.remove("bg-white", "shadow-lg", "text-gray-900");
+  //     header.classList.add("bg-transparent", "text-slate-100");
+  //   }
+  //   prevScrollPos = currentScrollPos;
+  // });
+</script>
