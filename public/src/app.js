@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 const expressLayouts = require("express-ejs-layouts");
 const homeRoutes = require("./routes/home.routes");
+const authRoutes = require("./routes/auth.routes");
 
 class ExpressApp {
   constructor(port) {
@@ -26,6 +27,7 @@ class ExpressApp {
 
   setupRoutes() {
     this.app.use("/", homeRoutes);
+    this.app.use("/auth", authRoutes);
   }
 
   startServer(port) {
