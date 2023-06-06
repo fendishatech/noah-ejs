@@ -2,26 +2,41 @@
   id="header"
   class="w-full h-[64px] px-6 py-2 flex fixed justify-between items-center transition duration-300"
 >
-  <h1 class="text-5xl text-green-800 hiwua">
-    ኖህ<span class="text-xl text-yellow-700"> የቁጠባና የብድር ተቋም</span>
-  </h1>
+  <div class="flex items-center justify-center hiwua gap-4">
+    <h1 class="text-5xl text-green-800">ኖህ</h1>
+    <p class="hidden sm:flex text-xl text-yellow-700">የቁጠባና የብድር ተቋም</p>
+  </div>
   <div class="flex items-center gap-x-6">
-    <ul class="flex hiwua items-center">
-      <li class="cursor-pointer hover:bg-green-300 px-4 py-2 rounded">ዋና ገጽ</li>
-      <li class="cursor-pointer hover:bg-green-300 px-4 py-2 rounded">
+    <ul id="links" class="flex hiwua text-yellow-600 items-center">
+      <li
+        class="text-2xl cursor-pointer hover:text-white hover:bg-green-600 px-4 py-2 rounded"
+      >
+        ዋና ገጽ
+      </li>
+      <li
+        class="text-2xl cursor-pointer hover:text-white hover:bg-green-600 px-4 py-2 rounded"
+      >
         አገልግሎቶች
       </li>
-      <li class="cursor-pointer hover:bg-green-300 px-4 py-2 rounded">ስለ ኖህ</li>
-      <li class="cursor-pointer hover:bg-green-300 px-4 py-2 rounded">ያግኙን</li>
+      <li
+        class="text-2xl cursor-pointer hover:text-white hover:bg-green-600 px-4 py-2 rounded"
+      >
+        <a href="#about">ስለ ኖህ</a>
+      </li>
+      <li
+        class="text-2xl cursor-pointer hover:text-white hover:bg-green-600 px-4 py-2 rounded"
+      >
+        ያግኙን
+      </li>
     </ul>
     <div class="flex items-center hiwua gap-x-4">
       <button
-        class="text-white text-xl bg-green-400 hover:bg-green-300 px-6 py-2 rounded"
+        class="text-white text-xl bg-green-700 hover:bg-green-600 px-6 py-2 rounded"
       >
         ይግቡ
       </button>
       <button
-        class="text-white text-xl bg-green-400 hover:bg-green-300 px-6 py-2 rounded"
+        class="text-white text-xl bg-green-700 hover:bg-green-600 px-6 py-2 rounded"
       >
         ይመዝገቡ
       </button>
@@ -37,36 +52,11 @@
     const currentScrollPos = window.pageYOffset;
     if (currentScrollPos >= scrollDistance) {
       header.classList.remove("bg-transparent", "text-slate-100", "sticky-top");
-      header.classList.add(
-        "bg-white",
-        "shadow-lg",
-        "text-gray-900",
-        "sticky-top-80"
-      );
+      header.classList.add("bg-white", "shadow-lg", "sticky-top-80");
     } else {
-      header.classList.remove(
-        "bg-white",
-        "shadow-lg",
-        "text-gray-900",
-        "sticky-top-80"
-      );
-      header.classList.add("bg-transparent", "text-slate-100", "sticky-top");
+      header.classList.remove("bg-white", "shadow-lg", "sticky-top-80");
+      header.classList.add("bg-transparent", "text-slate-100");
     }
     prevScrollPos = currentScrollPos;
   });
-  // const header = document.getElementById("header");
-  // let prevScrollPos = window.pageYOffset;
-  // const scrollDistance = 80;
-
-  // window.addEventListener("scroll", () => {
-  //   const currentScrollPos = window.pageYOffset;
-  //   if (currentScrollPos >= scrollDistance) {
-  //     header.classList.remove("bg-transparent", "text-slate-100");
-  //     header.classList.add("bg-white", "shadow-lg", "text-gray-900");
-  //   } else {
-  //     header.classList.remove("bg-white", "shadow-lg", "text-gray-900");
-  //     header.classList.add("bg-transparent", "text-slate-100");
-  //   }
-  //   prevScrollPos = currentScrollPos;
-  // });
 </script>
