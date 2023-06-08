@@ -1,18 +1,48 @@
 const router = require("express").Router();
-
+const Client = require("../models/client.model");
 // GET
-router.get("/login", async (req, res) => {
+router.get("/register", async (req, res) => {
   try {
-    res.render("auth/login");
+    res.render("auth/register", { layout: false });
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error");
   }
 });
 
-router.get("/register", async (req, res) => {
+// POST
+router.post("/register", async (req, res) => {
+  const client = {
+    first_name: req.body.first_name,
+    father_name: req.body.father_name,
+    phone_no: req.body.phone_no,
+    password: req.body.password,
+  };
   try {
-    res.render("auth/register");
+    const newClient = await Client.create(client);
+    console.log(newClient.dataValues);
+    return res.redirect(`/auth/login`);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// GET
+router.get("/login", async (req, res) => {
+  try {
+    res.render("auth/login", { layout: false });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// POST
+router.post("/login", async (req, res) => {
+  try {
+    // res.render("auth/login", { layout: false });
+    console.log(req.body);
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error");

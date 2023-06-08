@@ -2,7 +2,7 @@ const db = require("../helpers/database");
 const { DataTypes } = require("sequelize");
 const { v4: uuidv4 } = require("uuid");
 
-const Client = db.define("clients", {
+const Member = db.define("members", {
   id: {
     type: DataTypes.UUID,
     defaultValue: db.UUIDV4,
