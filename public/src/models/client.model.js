@@ -2,11 +2,18 @@ const db = require("../helpers/database");
 const { DataTypes } = require("sequelize");
 const { v4: uuidv4 } = require("uuid");
 
+const generateUUID = () => {
+  return uuidv4();
+};
+
 const Client = db.define("clients", {
   id: {
     type: DataTypes.UUID,
-    defaultValue: db.UUIDV4,
+    defaultValue: generateUUID,
     primaryKey: true,
+    allowNull: false,
+    unique: true,
+    autoIncrement: false,
   },
   first_name: {
     type: DataTypes.STRING,

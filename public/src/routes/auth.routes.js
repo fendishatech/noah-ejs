@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Client = require("../models/client.model");
+
 // GET
 router.get("/register", async (req, res) => {
   try {
@@ -20,8 +21,17 @@ router.post("/register", async (req, res) => {
   };
   try {
     const newClient = await Client.create(client);
-    console.log(newClient.dataValues);
-    return res.redirect(`/auth/login`);
+    return res.redirect(`/auth/confirm_register`);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// GET
+router.get("/confirm_register", async (req, res) => {
+  try {
+    res.render("auth/confirm_register", { layout: false });
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error");
