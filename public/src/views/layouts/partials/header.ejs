@@ -4,9 +4,28 @@
 >
   <div class="flex items-center justify-center hiwua gap-4">
     <h1 class="text-5xl text-green-600">ኖህ</h1>
-    <p class="hidden sm:flex text-xl text-yellow-700">የቁጠባና የብድር ተቋም</p>
+    <p class="hidden sm:flex text-sm md:text-xl text-yellow-700">
+      የቁጠባና የብድር ተቋም
+    </p>
   </div>
-  <div class="flex items-center gap-x-6">
+  <button class="block text-green-600 md:hidden" id="nav-toggle">
+    <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+      <path
+        v-if="!show"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z"
+      />
+      <path
+        v-else
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  </button>
+  <!-- ========== Start screen nav ========== -->
+  <div class="hidden md:flex items-center gap-x-6">
     <ul id="links" class="flex hiwua text-yellow-600 items-center">
       <li
         class="text-2xl cursor-pointer hover:text-white hover:bg-green-600 px-4 py-2 rounded"
@@ -29,7 +48,7 @@
         <a href="/contact">ያግኙን</a>
       </li>
     </ul>
-    <div class="flex items-center hiwua gap-x-4">
+    <div class="flex items-center hiwua gap-4">
       <button
         class="text-white text-xl bg-green-700 hover:bg-green-600 px-6 py-2 rounded"
       >
@@ -42,7 +61,15 @@
       </button>
     </div>
   </div>
+  <!-- ========== End screen nav ========== -->
 </header>
+<!-- ========== Start mobile screen ========== -->
+<div id="nav" class="relative">
+  <div class="hidden absolute top-[64px] left-[200px] h-24 bg-green-800">
+    hello
+  </div>
+</div>
+<!-- ========== End mobile screen ========== -->
 <script>
   const header = document.getElementById("header");
   let prevScrollPos = window.pageYOffset;
@@ -58,5 +85,13 @@
       header.classList.add("bg-transparent", "text-slate-100");
     }
     prevScrollPos = currentScrollPos;
+  });
+
+  // Toggle Nav
+  const navToggle = document.getElementById("nav-toggle");
+  const nav = document.querySelector("#nav");
+
+  navToggle.addEventListener("click", () => {
+    nav.classList.toggle("hidden");
   });
 </script>
